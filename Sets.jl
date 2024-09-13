@@ -56,6 +56,23 @@ begin
 	plot!(Z1)
 end
 
+# ╔═╡ 65db68e0-c8a0-4335-bcf6-5ff89cc71337
+md"""## Zonotope overapproximation"""
+
+# ╔═╡ 1b55cbf6-f814-4882-9335-46780c8b4219
+begin
+ Hrand = rand(HPolygon, seed=1234)
+ Zoa = overapproximate(Hrand, Zonotope, OctDirections(2))
+
+ # Custom directions example: 
+ # dirs = CustomDirections([c.a for c in constraints_list(Hrand)])
+ #Zoa_aligned = overapproximate(Hrand, Zonotope, dirs)
+ #plot(Zoa_aligned, ls=:dash)
+ 
+ plot(Zoa)
+ plot!(Hrand)
+end
+
 # ╔═╡ e4b19660-1b82-4fd6-a9ce-800a197562b1
 md"""## Hausdorff distance"""
 
@@ -106,6 +123,8 @@ end
 # ╟─d58c1e2c-9fef-4a9d-b0db-beb6325e383e
 # ╠═19f10d31-ec54-4789-b408-f6c2a1cfa422
 # ╠═938b0838-c01a-49ca-b620-21d3f30a15bd
+# ╟─65db68e0-c8a0-4335-bcf6-5ff89cc71337
+# ╠═1b55cbf6-f814-4882-9335-46780c8b4219
 # ╟─e4b19660-1b82-4fd6-a9ce-800a197562b1
 # ╠═488a6748-1ff5-4a12-8eef-51cbdc32d14b
 # ╠═e187cc2e-6d6a-408f-b62f-92bcd96157e6
